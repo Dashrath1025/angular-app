@@ -1,0 +1,74 @@
+
+<div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+  <div class="container-fluid">
+   
+   
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <div class="text-white fs-5 m-2">
+      Search By Name
+      </div>
+      <div class="d-flex m-2">
+        <input class="form-control me-2" type="text" placeholder="Search"  [(ngModel)]="search">
+        <button class="btn btn-success" type="button" (click)="onSearch()" >Search</button>
+      </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <div class="text-white fs-5 m-2">
+        Search By Category
+          </div>
+      <div class="d-flex m-2">
+        <select  class="form-control me-2"  [(ngModel)]="selectedCategoryId">
+          
+          <option value="">-- Select a category --</option>
+          <option *ngFor="let category of categories" [value]="category.catid">{{ category.name }}</option>
+        </select>
+        <div> </div>
+        <button class="btn btn-success " type="button" (click)="onDrop()">Search</button>
+      </div>
+      <ul class="navbar-nav me-auto">
+       
+      </ul>
+   
+    </div>
+  </div>
+</nav>
+
+</div>
+<!----------------------------------------------------------------------------------------------------->
+
+<div class="row row-cols-3 g-3 m-3" >
+  <div class="col" *ngFor="let Products of data">
+    <div class="card" >
+      <img src= {{Products.img}} class="card-img-top"
+        alt="Hollywood Sign on The Hill"  height="300" />
+        <hr>
+      <div class="card-body">
+        <h4 class="card-title text-warning">{{Products.name}}</h4>
+        <hr>
+        <h6 class="card-title ">Product ID: {{Products.productid}}</h6>
+        <hr>
+        <h6 class="card-title">Price: {{Products.rate}} Rs</h6>
+        <hr>
+        <h6 class="card-title">Quantity: {{Products.quan}} Piece</h6>
+        <hr>
+        <p class="card-text">
+          Product Description: {{Products.description}}
+        </p>
+        <hr>
+        <button class="btn btn-success" type="button"[routerLink]="['/order',Products.productid]">Order Product</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!------------------------------------------------------------------------------------------------->
+
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+

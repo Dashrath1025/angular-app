@@ -1,0 +1,264 @@
+
+<style>     
+   .text-bold {
+    font-weight: 800;
+   }
+
+text-color {
+    color: #18d93f;
+}
+
+/* Main image - left */
+.main-img img {
+    width: 100%;
+}
+
+/* Preview images */
+.previews img {
+    width: 100%;
+    height: 140px;
+}
+
+.main-description .category {
+    /* text-transform: uppercase; */
+    color: #18d93f;
+}
+
+.main-description .product-title {
+    font-size: 2.5rem;
+}
+
+.old-price-discount {
+    font-weight: 600;
+}
+
+.new-price {
+    font-size: 2rem;
+}
+
+.details-title {
+    /* text-transform: uppercase; */
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #757575;
+}
+
+.buttons .block {
+    margin-right: 5px;
+}
+
+.quantity input {
+    border-radius: 0;
+    height: 40px;
+
+}
+
+
+.custom-btn {
+    border-radius: 10px;
+    /* text-transform: capitalize; */
+    background-color: #18d93f;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 0;
+}
+
+.custom-btn:hover {
+    background-color: #18d93f !important;
+    font-size: 18px;
+    color: white !important;
+}
+
+.similar-product img {
+    height: 400px;
+}
+
+.similar-product {
+    text-align: left;
+}
+
+.similar-product .title {
+    margin: 17px 0px 4px 0px;
+}
+
+.similar-product .price {
+    font-weight: bold;
+}
+
+.questions .icon i {
+    font-size: 2rem;
+}
+
+.questions-icon {
+    font-size: 2rem;
+    color: #18d93f;
+}
+
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+    /* Make preview images responsive  */
+    .previews img {
+        width: 100%;
+        height: auto;
+    }
+
+}</style>
+
+<div>
+<div class="container my-5" *ngIf="orderproduct" >
+    <div class="row" *ngIf="authService.isLoggedIn()">
+        <div class="col-md-5">
+            <div class="main-img">
+                <img class="img-fluid" src="{{orderproduct.img}}">
+                <div class="row my-3 previews">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="main-description px-2">
+                <div class="category text-bold">
+                    Category: {{orderproduct.catid}}
+                </div>
+                <div class="product-title text-bold my-3">
+                    {{orderproduct.name}}
+                </div>
+
+
+                <div class="price-area my-4">
+                    
+                    <p class="new-price text-bold mb-1">{{orderproduct.rate}} Rs.</p>
+                    <h4>Available Qunatity: {{orderproduct.quan}} </h4>
+                    <p class="text-secondary mb-1">(Inclusive of all taxes)</p>
+
+                </div>
+                <div class="product-details my-4">
+                    <p class="details-title text-color mb-1">Product Details</p>
+                    <p class="description">{{orderproduct.description}}</p>
+                </div>
+
+
+                <div class="buttons d-flex my-5">
+                    
+                    <div class="block">
+                        <button class="shadow btn custom-btn" (click)=" calculateTotal()">Ordered Quantity</button>
+                    </div>
+
+                    <div class="block quantity">
+                       
+                        <input type="number" class="form-control" [(ngModel)]="orderQuantity">
+                    </div>
+                 
+                
+                </div>
+               
+               
+
+            </div>
+
+            <div class="product-details my-4">
+               
+              
+            </div>
+          
+                     <div class="row questions bg-light p-3">
+                <div class="col-md-1 icon">
+                    <i class="fa-brands fa-rocketchat questions-icon"></i>
+                </div>
+                <div class="col-md-11 text">
+                <h4 style="font-weight: bold; color: coral;">   Order Summary </h4>
+                </div>
+            </div>
+
+            <div class="delivery-options my-4">
+                <h5 class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Order Details</b> </h5>
+                <p class="text-secondary">Product Name: {{orderproduct.name}}</p>
+                <p class="text-secondary">Subtotal: {{orderQuantity}} X {{orderproduct.rate| number:'1.2-2'}}</p>
+            </div>
+
+            <div class="delivery my-4">
+                <h5 class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <h5>Total price:</h5> </h5>
+                <div *ngIf="calculateTotal() !== undefined">
+                    <h5> {{ calculateTotal() | number:'1.2-2'}} Rs.</h5>
+                   
+                  </div>
+                  <div *ngIf="calculateTotal() === 'Quantity is not sufficient'">
+                    <p>Quantity is not sufficient</p>
+                  </div>
+            </div>
+            <div class="block">
+                <button class="shadow btn custom-btn btn-success rounded" (click)=" goToNextPage() ">Confirm Order</button>
+            </div>
+            
+         
+        </div>
+    </div>
+
+    <div *ngIf="!authService.isLoggedIn()" >
+        <style>
+            /*======================
+                404 page
+            =======================*/
+            
+            
+            .page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+            }
+            
+            .page_404  img{ width:100%;}
+            
+            body{
+                background-color: pink;
+            }
+             
+             
+             .four_zero_four_bg h1{
+             font-size:80px;
+             }
+             
+              .four_zero_four_bg h3{
+                         font-size:80px;
+                         }
+                         
+                         .link_404{			 
+                color: #fff!important;
+                padding: 10px 20px;
+                background: #39ac31;
+                margin: 20px 0;
+                display: inline-block;}
+                .contant_box_404{ margin-top:-50px;}
+                </style>
+
+
+        <section class="page_404 m-lg-8" >
+            <div class="container" >
+                <div class="row">	
+                <div class="col-sm-12 ">
+                <div class="col-sm-12 col-sm-offset-2  text-center">
+                <div class="four_zero_four_bg mx-5">
+                    <h1 class="text-center ">Something went wrong</h1>
+                
+                
+                </div>
+                
+                <div class="contant_box_404 m-lg-2">
+                
+                
+                <h3>Please Login first to order prodcuts</h3>
+                
+                <a class="link_404 text-success bg-black rounded" [routerLink]="'/log'">Login</a>
+            </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+</div>

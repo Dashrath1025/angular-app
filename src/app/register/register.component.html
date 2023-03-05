@@ -1,0 +1,179 @@
+
+
+
+
+<!-- <p>register works!</p> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="vh-100 mt-5">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    
+                      
+                        
+                        <div class="col-md-6 bg-white p-5">
+                        <h3 class="pb-3 text-warning">Registration Form</h3>
+                        <div class="form-style">
+                        <form #addUser="ngForm"  novalidate>
+                         
+                            <div class="form-group pb-3">
+                                <label id="lblUser" class="form-label" for="empid">Username</label>
+                                <input type="text" id="username" name="username"
+                                class="form-control" minlength="4" maxlength="16"
+                                #usn="ngModel" [(ngModel)]="newUser.username" required=""/>
+                               
+                                <ng-template [ngIf]="!usn?.valid && (usn?.dirty || usn?.touched)">
+                                    <ng-template [ngIf]="usn.errors?.['required']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Username Should not Empty !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="usn.errors?.['minlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Minimum Value Should be 4 Character !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="usn.errors?.['maxlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Maximum Value Should be 16 Character !
+                                    </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                            
+                            <div class="form-group pb-3">
+                                <label id="lblname" class="form-label" for="uname">Name</label>
+                                <input type="text" id="uname" name="uname"
+                                class="form-control" minlength="4" maxlength="16"
+                                #uname="ngModel" [(ngModel)]="newUser.name" required=""/>
+                               
+                                <ng-template [ngIf]="!uname?.valid && (uname?.dirty || uname?.touched)">
+                                    <ng-template [ngIf]="uname.errors?.['required']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Name Should not Empty !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="uname.errors?.['minlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Minimum Value Should be 4 Character
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="uname.errors?.['maxlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Maximum Value Should be 16 Character
+                                    </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                        
+                            <div class="form-group pb-3">
+                                <label id="lblEmail" class="form-label" for="email">Email</label>
+                                <input type="email" id="Email" name="Email"
+                                class="form-control" minlength="8" maxlength="20"
+                                #uem="ngModel" [(ngModel)]="newUser.email" required=""/>
+                               
+                                <ng-template [ngIf]="!uem?.valid && (uem?.dirty || uem?.touched)">
+                                    <ng-template [ngIf]="uem.errors?.['required']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Email Should not Empty !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="uem.errors?.['minlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Minimum Value Should be 8 Character !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="uem.errors?.['maxlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Maximum Value Should be 20 Character !
+                                    </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                        
+                            <div class="form-group pb-3">
+                                <label id="lblMob" class="form-label" for="Mob">Mobile Number</label>
+                                <input type="number" id="num" name="num"
+                                class="form-control" min="1000000000" max="9999999999" 
+                                #mn="ngModel" [(ngModel)]="newUser.mobile" required=""/>
+                               
+                                <ng-template [ngIf]="!mn?.valid && (mn?.dirty || mn?.touched)">
+                                    <ng-template [ngIf]="mn.errors?.['required']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Mobile Should not Empty !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="mn.errors?.['max']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Maximum Lenght Should be 10 Digit !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="mn.errors?.['min']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Minimum Lenght Should be 10 Digit !
+                                    </div>
+                                    </ng-template>
+                                 
+                                </ng-template>
+                            </div>
+                        
+                            <div class="form-group pb-3">
+                                <label id="lblpass" class="form-label" for="empid">Password</label>
+                                <input type="password" id="pass" name="pass"
+                                class="form-control" minlength="8" maxlength="16"
+                                #pass="ngModel" [(ngModel)]="newUser.password" required=""/>
+                               
+                                <ng-template [ngIf]="!pass?.valid && (pass?.dirty || pass?.touched)">
+                                    <ng-template [ngIf]="pass.errors?.['required']">
+                                        <div class="form-group pb-3 text-danger">
+                                       Password Should not Empty !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="pass.errors?.['minlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Minimum Value Should be 8 Character !
+                                    </div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="pass.errors?.['maxlength']">
+                                        <div class="form-group pb-3 text-danger">
+                                        Maximum Value Should be 16 Character !
+                                    </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                        
+                            <div class="pb-2">
+                                <button type="submit" class="btn btn-success w-10 font-weight-bold fs-7 mt-2" (click)="onSubmit(addUser)" [disabled]="!addUser.valid">Submit</button> &nbsp;
+                                <button type="submit" class="btn btn-danger w-10 font-weight-bold fs-7 mt-2" (click)="onReset(addUser)">Reset</button>
+                                 </div>
+                                 
+                        </form>
+                        <p class="text-danger">Already have an account? <a [routerLink]="'/log'">Login Here</a></p>
+                        </div>
+                       
+                        
+                        </div>
+                        </div>
+                        
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </section>
+    
+</body>
+</html>
+<router-outlet></router-outlet>

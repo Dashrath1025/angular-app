@@ -1,0 +1,102 @@
+<!-- <div class="container">
+   
+
+    <div class="col-md-6 bg-white p-5">
+    <h3 class="pb-3 text-warning">Login Form</h3>
+    <div class="form-style">
+    <form >
+     
+       
+    
+        <div class="form-group pb-3">
+            <label id="lblEmail" class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email"
+            class="form-control" 
+            #email/>
+           
+           
+        </div>
+    
+      
+        <div class="form-group pb-3">
+            <label id="lblpass" class="form-label" for="empid">Password</label>
+            <input type="password" id="password" name="password"
+            class="form-control" #password/>
+        </div>
+    
+        <div class="pb-3">
+            <button type="submit" class="btn btn-success w-10 font-weight-bold fs-7 mt-2" (click)="onSubmit(email.value,password.value)">Submit</button>
+             </div>
+            
+    </form>
+    <p class="text-danger">Don't have an account? <a [routerLink]="'/reg'">Register Here</a></p>
+    </div>
+    
+    </div>
+    </div> -->
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  
+
+
+<section class="vh-100 border-1 border-dark mt-5 ">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+    
+          
+        
+            <h3 class="pb-3 text-warning">Login Form</h3>
+            <div class="form-style">
+            <form >
+             
+               
+            
+                <div class="form-group pb-3">
+                    <label id="lblEmail" class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email"
+                    class="form-control" 
+                    #email/>
+                   
+                   
+                </div>
+            
+              
+                <div class="form-group pb-3">
+                    <label id="lblpass" class="form-label" for="empid">Password</label>
+                    <input type="password" id="password" name="password"
+                    class="form-control" #password/>
+                </div>
+            
+                <div class="pb-3">
+                    <button type="submit" class="btn btn-success w-10 font-weight-bold fs-7 mt-2" (click)="onSubmit(email.value,password.value)">Submit</button>
+                     </div>
+                    
+            </form>
+            <p class="text-danger">Don't have an account? <a [routerLink]="'/reg'">Register Here</a></p>
+
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>
+    
+    <router-outlet></router-outlet>

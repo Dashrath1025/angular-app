@@ -1,0 +1,119 @@
+<section class="vh-100 gradient-custom-2" *ngIf="authService.isLoggedIn()">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-10 col-lg-8 col-xl-6">
+          <div class="card card-stepper" style="border-radius: 16px;">
+            <div class="card-header p-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h3>Order Summary</h3>
+                  <p class="text-muted mb-2"> Order ID <span class="fw-bold text-body">#{{randNumber}}</span></p>
+                  <p class="text-muted mb-0"> Place On <span class="fw-bold text-body">{{today| date: 'fullDate'}}</span> </p>
+                </div>
+                <div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex flex-row mb-4 pb-2">
+                <div class="flex-fill">
+                  <h5 class="bold"> {{ pname }}</h5>
+                  <p class="text-muted"> Qt: {{ quantity }}</p>
+                  <h4 class="mb-3"> Rs. {{ total | number:'1.2-2' }} <span class="small text-muted"> via (COD) </span></h4>
+                  <p class="text-muted">Tracking Status on: <span class="text-body">{{today| date: 'shortTime'}} Today</span></p>
+                </div>
+                <div>
+                  <img class="align-self-center img-fluid"
+                    src="{{pimg}}" width="250">
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-footer p-4">
+              <div class="d-flex justify-content-between">
+                <h4>Thank You for Your Order !</h4>
+                <h6 class="mb-0"> <a [routerLink]="['/user']">Continue Purchase</a> </h6>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div *ngIf="!authService.isLoggedIn()" >
+    <style>
+        /*======================
+            404 page
+        =======================*/
+        
+        
+        .page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+        }
+        
+        .page_404  img{ width:100%;}
+        
+        .four_zero_four_bg{
+         
+         background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 400px;
+            background-position: center;
+         }
+         
+         
+         .four_zero_four_bg h1{
+         font-size:80px;
+         }
+         
+          .four_zero_four_bg h3{
+                     font-size:80px;
+                     }
+                     
+                     .link_404{			 
+            color: #fff!important;
+            padding: 10px 20px;
+            background: #39ac31;
+            margin: 20px 0;
+            display: inline-block;}
+            .contant_box_404{ margin-top:-50px;}
+            </style>
+
+
+    <section class="page_404 m-lg-8" >
+        <div class="container" >
+            <div class="row">	
+            <div class="col-sm-12 ">
+            <div class="col-sm-12 col-sm-offset-2  text-center">
+            <div class="four_zero_four_bg mx-5">
+                <h1 class="text-center ">401</h1>
+            
+            
+            </div>
+            
+            <div class="contant_box_404 m-lg-2">
+            <h3 class="h2">
+                Unauthorized !
+            </h3>
+            
+            <p>Please Login to Continue</p>
+            
+            <a class="link_404" [routerLink]="'/log'">Login</a>
+        </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
